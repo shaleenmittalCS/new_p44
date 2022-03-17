@@ -1,7 +1,9 @@
 connection: "scl_twin_private"
 
 # include all the views
+include: "/Dashboards/*"
 include: "/views/**/*.view"
+
 
 datagroup: new_p44_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
