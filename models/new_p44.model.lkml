@@ -100,3 +100,32 @@ explore: shipment_identifier {
   }
 
 }
+
+
+explore: inventory_order {
+  label: "(2) Inventory"
+  join: inventory_order_identifier {
+    type: left_outer
+    sql_on: ${inventory_order.id} = ${inventory_order_identifier.inventory_order_id} ;;
+    relationship: many_to_one
+  }
+
+  join: inventory_order_item {
+    type: left_outer
+    sql_on: ${inventory_order_item.inventory_order_id} = ${inventory_order_identifier.inventory_order_id} ;;
+    relationship: many_to_one
+  }
+
+  join: inventory_item {
+    type: left_outer
+    sql_on: ${inventory_item.id} = ${inventory_order_item.inventory_item_id} ;;
+    relationship: many_to_one
+  }
+
+  join: inventory_item_identifier {
+    type: left_outer
+    sql_on: ${inventory_item_identifier.inventory_item_id} = ${inventory_item.id} ;;
+    relationship: many_to_one
+  }
+
+}
