@@ -105,7 +105,7 @@ explore: shipment_identifier {
 
 
 explore: inventory_order_identifier {
-  label: "(1) Order, shipment and loaction"
+  label: "(1) Order, shipment and location"
   join: shipment_identifier {
     type: left_outer
     sql_on: ${inventory_order_identifier.id} = ${shipment_identifier.id} ;;
