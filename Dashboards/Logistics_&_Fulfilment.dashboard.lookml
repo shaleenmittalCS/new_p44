@@ -92,6 +92,74 @@
     col: 0
     width: 24
     height: 9
+  - title: Untitled
+    name: Untitled (2)
+    model: Logistics_&_Fullfillment
+    explore: inventory_order_identifier
+    type: looker_map
+    fields: [location_extended.location, location.city, route_segment.transportation_mode]
+    filters:
+      shipment_identifier.shipment_id: "-NULL"
+    sorts: [location_extended.location]
+    limit: 500
+    map_plot_mode: lines
+    heatmap_gridlines: true
+    heatmap_gridlines_empty: false
+    heatmap_opacity: 0.5
+    show_region_field: true
+    draw_map_labels_above_data: true
+    map_tile_provider: traffic_day
+    map_position: custom
+    map_scale_indicator: 'off'
+    map_pannable: true
+    map_zoomable: true
+    map_marker_type: circle
+    map_marker_icon_name: airplane
+    map_marker_radius_mode: proportional_value
+    map_marker_units: meters
+    map_marker_proportional_scale_type: linear
+    map_marker_color_mode: fixed
+    show_view_names: false
+    show_legend: true
+    quantize_map_value_colors: true
+    reverse_map_value_colors: false
+    map_zoom: 3
+    map_marker_color: [blue]
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    series_types: {}
+    title_hidden: true
+    listen:
+      Order ID: inventory_order_identifier.inventory_order_id
+    row: 9
+    col: 0
+    width: 24
+    height: 15
   filters:
   - name: Shipment ID
     title: Shipment ID
