@@ -1,12 +1,12 @@
-- dashboard: p44_updated
-  title: P44 Updated
+- dashboard: Logistics_and_Fullfillment
+  title: Logistics_And_Fullfillment
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
   elements:
   - title: Shipments
     name: Shipments
-    model: new_p44
+    model: Logistics_&_Fullfillment
     explore: shipment_identifier
     type: looker_grid
     fields: [shipment_identifier.shipment_id, route_segment.transportation_mode, stop.stop_type,
@@ -84,7 +84,7 @@
       type: button_group
       display: inline
       options: []
-    model: new_p44
+    model: Logistics_&_Fullfillment
     explore: shipment_identifier
     listens_to_filters: []
     field: route_segment.transportation_mode
@@ -98,7 +98,7 @@
       type: advanced
       display: popover
       options: []
-    model: new_p44
+    model: Logistics_&_Fullfillment
     explore: shipment_identifier
     listens_to_filters: []
     field: stop.stop_type
@@ -112,7 +112,7 @@
       type: advanced
       display: popover
       options: []
-    model: new_p44
+    model: Logistics_&_Fullfillment
     explore: shipment_identifier
     listens_to_filters: []
     field: location.city

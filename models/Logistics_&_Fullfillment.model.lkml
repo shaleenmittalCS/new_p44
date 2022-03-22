@@ -2,7 +2,7 @@ connection: "scl_twin_private"
 
 # include all the views
 include: "/Dashboards/*"
-include: "/views/**/*.view"
+include: "/views/**/*"
 
 
 datagroup: new_p44_default_datagroup {
