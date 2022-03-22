@@ -1,6 +1,7 @@
 connection: "scl_twin_private"
 
 # include all the views
+include: "/dashboards/**/*"
 include: "/views/**/*"
 
 
