@@ -57,6 +57,7 @@ view: tracking_provider {
   }
 
   dimension: name {
+    label: "Provider Name"
     type: string
     sql: ${TABLE}.NAME ;;
   }

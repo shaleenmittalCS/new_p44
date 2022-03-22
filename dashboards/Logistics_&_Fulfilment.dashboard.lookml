@@ -9,14 +9,10 @@
     model: Logistics_&_Fullfillment
     explore: inventory_order_identifier
     type: looker_grid
-    fields: [inventory_order.type, inventory_order.status_code, shipment_identifier.identifier_type,
-      shipment_identifier.identifier_value, shipment_identifier.shipment_id, tracking_provider.type,
-      shipment_event.type, location.city, route_segment.transportation_mode, stop.stop_type,
-      tracking_provider.name, inventory_order_identifier.inventory_order_id]
-    filters:
-      tracking_provider.type: "-NULL"
-      inventory_order.type: "-NULL"
-    sorts: [inventory_order.type]
+    fields: [shipment_identifier.identifier_type, shipment_identifier.identifier_value,
+      shipment_identifier.shipment_id, tracking_provider.type, shipment_event.type,
+      location.city, route_segment.transportation_mode, stop.stop_type, tracking_provider.name,
+      inventory_order_identifier.inventory_order_id]
     limit: 500
     show_view_names: false
     show_row_numbers: true
@@ -125,7 +121,7 @@
     show_legend: true
     quantize_map_value_colors: true
     reverse_map_value_colors: false
-    map_zoom: 6
+    map_zoom: 3
     map_marker_radius_fixed: 10000
     map_marker_radius_min: 100
     map_marker_radius_max: 100

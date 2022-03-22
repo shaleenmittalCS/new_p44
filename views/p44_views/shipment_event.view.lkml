@@ -159,6 +159,7 @@ view: shipment_event {
   }
 
   dimension: type {
+    label: "Shipment Type"
     type: string
     sql: ${TABLE}.TYPE ;;
   }
