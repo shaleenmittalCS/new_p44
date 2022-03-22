@@ -26,7 +26,7 @@ view: location {
 
   dimension: country {
     type: string
-    map_layer_name: countries
+#    map_layer_name: countries
     sql: ${TABLE}.COUNTRY ;;
   }
 

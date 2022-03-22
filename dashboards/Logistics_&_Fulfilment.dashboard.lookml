@@ -83,38 +83,40 @@
     defaults_version: 1
     title_hidden: true
     listen:
-      Shipment ID: shipment_identifier.shipment_id
       Transportation Mode: route_segment.transportation_mode
       Order ID: inventory_order_identifier.inventory_order_id
       Provider Name: tracking_provider.name
       " Shipment Stop Type": shipment_event.type
-    row: 0
+      Shipment ID: shipment_identifier.shipment_id
+    row: 8
     col: 0
     width: 24
-    height: 9
+    height: 8
   - title: Untitled
     name: Untitled (2)
     model: Logistics_&_Fullfillment
     explore: inventory_order_identifier
     type: looker_map
-    fields: [location_extended.location, location.city, route_segment.transportation_mode]
+    fields: [location_extended.location, shipment_identifier.shipment_id, tracking_provider.name,
+      location.country, location.city, shipment_event.type]
     filters:
-      shipment_identifier.shipment_id: "-NULL"
+      tracking_provider.name: "-NULL"
+      location.country: "-NULL"
     sorts: [location_extended.location]
-    limit: 500
+    limit: 2000
     map_plot_mode: lines
     heatmap_gridlines: true
     heatmap_gridlines_empty: false
-    heatmap_opacity: 0.5
+    heatmap_opacity: 1
     show_region_field: true
     draw_map_labels_above_data: true
-    map_tile_provider: traffic_day
+    map_tile_provider: streets
     map_position: custom
-    map_scale_indicator: 'off'
+    map_scale_indicator: metric
     map_pannable: true
     map_zoomable: true
     map_marker_type: circle
-    map_marker_icon_name: airplane
+    map_marker_icon_name: default
     map_marker_radius_mode: proportional_value
     map_marker_units: meters
     map_marker_proportional_scale_type: linear
@@ -123,8 +125,11 @@
     show_legend: true
     quantize_map_value_colors: true
     reverse_map_value_colors: false
-    map_zoom: 3
-    map_marker_color: [blue]
+    map_zoom: 6
+    map_marker_radius_fixed: 10000
+    map_marker_radius_min: 100
+    map_marker_radius_max: 100
+    map_marker_color: [Blue]
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_y_axis_labels: true
@@ -153,20 +158,22 @@
     totals_color: "#808080"
     defaults_version: 1
     series_types: {}
+    hidden_fields:
     title_hidden: true
     listen:
       Order ID: inventory_order_identifier.inventory_order_id
-    row: 9
+      Shipment ID: shipment_identifier.shipment_id
+    row: 0
     col: 0
     width: 24
-    height: 15
+    height: 8
   filters:
   - name: Shipment ID
     title: Shipment ID
     type: field_filter
-    default_value: ''
+    default_value: 4EE7642B8D0E4BA6A5F7850683D5C442
     allow_multiple_values: true
-    required: false
+    required: true
     ui_config:
       type: advanced
       display: popover

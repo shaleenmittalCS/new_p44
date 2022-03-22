@@ -97,7 +97,7 @@ explore: inventory_order_identifier {
   }
 
   join: location_extended {
-    type: left_outer
+    type: inner
     sql_on: ${location.id} = ${location_extended.location_id} ;;
     relationship: one_to_one
   }
