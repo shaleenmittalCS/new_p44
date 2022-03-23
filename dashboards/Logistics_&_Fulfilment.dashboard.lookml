@@ -12,7 +12,10 @@
     fields: [shipment_identifier.identifier_type, shipment_identifier.identifier_value,
       shipment_identifier.shipment_id, tracking_provider.type, shipment_event.type,
       location.city, route_segment.transportation_mode, stop.stop_type, tracking_provider.name,
-      inventory_order_identifier.inventory_order_id]
+      inventory_order_identifier.inventory_order_id, company.name, company.network_role,
+      route_segment_identifier.identifier_type, route_segment_identifier.identifier_value,
+      shipment_event.actual_utc_time]
+    sorts: [shipment_identifier.identifier_type]
     limit: 500
     show_view_names: false
     show_row_numbers: true
@@ -31,10 +34,11 @@
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
     column_order: ["$$$_row_numbers_$$$", inventory_order_identifier.inventory_order_id,
-      shipment_identifier.shipment_id, inventory_order.type, inventory_order.status_code,
-      shipment_identifier.identifier_type, shipment_identifier.identifier_value, tracking_provider.type,
-      shipment_event.type, location.city, route_segment.transportation_mode, stop.stop_type,
-      tracking_provider.name]
+      shipment_identifier.shipment_id, shipment_identifier.identifier_type, shipment_identifier.identifier_value,
+      tracking_provider.type, shipment_event.type, location.city, route_segment.transportation_mode,
+      stop.stop_type, tracking_provider.name, company.name, company.network_role,
+      route_segment_identifier.identifier_type, shipment_event.actual_utc_date, route_segment_identifier.identifier_value,
+      shipment_event.dw_inserted_datetime_date]
     show_totals: true
     show_row_totals: true
     truncate_header: false
@@ -48,8 +52,18 @@
       route_segment.transportation_mode: Transportation Mode
       tracking_provider.name: Provider Name
       inventory_order_identifier.inventory_order_id: Order ID
+      shipment_event.estimated_updated_utc_date: ETA
+      company.name: Entity
+      company.network_role: Entity Type
+      route_segment_identifier.identifier_type: Container Type
+      route_segment_identifier.identifier_value: Container ID
+      shipment_event.actual_utc_time: Event Time
     series_column_widths:
-      inventory_order_identifier.inventory_order_id: 199
+      inventory_order_identifier.inventory_order_id: 107
+      shipment_identifier.shipment_id: 104
+      shipment_event.estimated_updated_utc_date: 115
+      route_segment_identifier.identifier_value: 75
+      tracking_provider.type: 75
     series_text_format:
       inventory_order.id:
         align: center
@@ -75,6 +89,20 @@
         align: center
       tracking_provider.name:
         align: center
+      company.name:
+        align: center
+      shipment_event.estimated_updated_utc_date:
+        align: center
+      inventory_order_identifier.inventory_order_id:
+        align: center
+      company.network_role:
+        align: center
+      route_segment_identifier.identifier_value:
+        align: center
+      route_segment_identifier.identifier_type:
+        align: center
+      shipment_event.actual_utc_time:
+        align: center
     header_font_color: "#12B5CB"
     defaults_version: 1
     title_hidden: true
@@ -82,8 +110,9 @@
       Transportation Mode: route_segment.transportation_mode
       Order ID: inventory_order_identifier.inventory_order_id
       Provider Name: tracking_provider.name
-      " Shipment Stop Type": shipment_event.type
       Shipment ID: shipment_identifier.shipment_id
+      " Shipment Event Type": shipment_event.type
+      Entity: company.name
     row: 8
     col: 0
     width: 24
@@ -94,7 +123,7 @@
     explore: inventory_order_identifier
     type: looker_map
     fields: [location_extended.location, shipment_identifier.shipment_id, tracking_provider.name,
-      location.country, location.city, shipment_event.type]
+      location.country, location.city, shipment_event.type, tracking_provider.type]
     filters:
       tracking_provider.name: "-NULL"
       location.country: "-NULL"
@@ -159,6 +188,7 @@
     listen:
       Order ID: inventory_order_identifier.inventory_order_id
       Shipment ID: shipment_identifier.shipment_id
+      Entity: company.name
     row: 0
     col: 0
     width: 24
@@ -167,7 +197,7 @@
   - name: Shipment ID
     title: Shipment ID
     type: field_filter
-    default_value: 4EE7642B8D0E4BA6A5F7850683D5C442
+    default_value: ''
     allow_multiple_values: true
     required: true
     ui_config:
@@ -220,8 +250,8 @@
     explore: inventory_order_identifier
     listens_to_filters: []
     field: tracking_provider.name
-  - name: " Shipment Stop Type"
-    title: " Shipment Stop Type"
+  - name: " Shipment Event Type"
+    title: " Shipment Event Type"
     type: field_filter
     default_value: ''
     allow_multiple_values: true
@@ -234,3 +264,17 @@
     explore: inventory_order_identifier
     listens_to_filters: []
     field: shipment_event.type
+  - name: Entity
+    title: Entity
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: advanced
+      display: popover
+      options: []
+    model: Logistics_&_Fullfillment
+    explore: inventory_order_identifier
+    listens_to_filters: []
+    field: company.name
