@@ -1,4 +1,5 @@
 connection: "scl_twin_private"
+label: "Logistics_&_Fulfilment"
 
 # include all the views
 include: "/dashboards/**/*"

@@ -6,7 +6,7 @@
   elements:
   - title: Untitled
     name: Untitled
-    model: Logistics_&_Fullfillment
+    model: Logistics_&_Fulfilment
     explore: inventory_order_identifier
     type: looker_grid
     fields: [shipment_identifier.identifier_type, shipment_identifier.identifier_value,
@@ -119,7 +119,7 @@
     height: 8
   - title: Untitled
     name: Untitled (2)
-    model: Logistics_&_Fullfillment
+    model: Logistics_&_Fulfilment
     explore: inventory_order_identifier
     type: looker_map
     fields: [location_extended.location, shipment_identifier.shipment_id, tracking_provider.name,
@@ -204,7 +204,7 @@
       type: advanced
       display: popover
       options: []
-    model: Logistics_&_Fullfillment
+    model: Logistics_&_Fulfilment
     explore: inventory_order_identifier
     listens_to_filters: []
     field: shipment_identifier.shipment_id
@@ -218,7 +218,7 @@
       type: advanced
       display: popover
       options: []
-    model: Logistics_&_Fullfillment
+    model: Logistics_&_Fulfilment
     explore: inventory_order_identifier
     listens_to_filters: []
     field: route_segment.transportation_mode
@@ -232,7 +232,7 @@
       type: advanced
       display: popover
       options: []
-    model: Logistics_&_Fullfillment
+    model: Logistics_&_Fulfilment
     explore: inventory_order_identifier
     listens_to_filters: []
     field: inventory_order_identifier.inventory_order_id
@@ -246,7 +246,7 @@
       type: advanced
       display: popover
       options: []
-    model: Logistics_&_Fullfillment
+    model: Logistics_&_Fulfilment
     explore: inventory_order_identifier
     listens_to_filters: []
     field: tracking_provider.name
@@ -260,7 +260,7 @@
       type: advanced
       display: popover
       options: []
-    model: Logistics_&_Fullfillment
+    model: Logistics_&_Fulfilment
     explore: inventory_order_identifier
     listens_to_filters: []
     field: shipment_event.type
@@ -274,7 +274,7 @@
       type: advanced
       display: popover
       options: []
-    model: Logistics_&_Fullfillment
+    model: Logistics_&_Fulfilment
     explore: inventory_order_identifier
     listens_to_filters: []
     field: company.name
