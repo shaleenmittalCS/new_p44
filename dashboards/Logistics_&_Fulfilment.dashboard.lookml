@@ -14,7 +14,7 @@
       location.city, route_segment.transportation_mode, stop.stop_type, tracking_provider.name,
       inventory_order_identifier.inventory_order_id, company.name, company.network_role,
       route_segment_identifier.identifier_type, route_segment_identifier.identifier_value,
-      shipment_event.actual_utc_time]
+      shipment_event.actual_utc_time, shipment_event.estimated_updated_utc_time]
     sorts: [shipment_identifier.identifier_type]
     limit: 500
     show_view_names: false
@@ -58,6 +58,7 @@
       route_segment_identifier.identifier_type: Container Type
       route_segment_identifier.identifier_value: Container ID
       shipment_event.actual_utc_time: Event Time
+      shipment_event.estimated_updated_utc_time: ETA
     series_column_widths:
       inventory_order_identifier.inventory_order_id: 107
       shipment_identifier.shipment_id: 104
@@ -102,6 +103,8 @@
       route_segment_identifier.identifier_type:
         align: center
       shipment_event.actual_utc_time:
+        align: center
+      shipment_event.estimated_updated_utc_time:
         align: center
     header_font_color: "#12B5CB"
     defaults_version: 1
@@ -197,7 +200,7 @@
   - name: Shipment ID
     title: Shipment ID
     type: field_filter
-    default_value: ''
+    default_value: 4EE7642B8D0E4BA6A5F7850683D5C442
     allow_multiple_values: true
     required: true
     ui_config:
